@@ -1,0 +1,3 @@
+# cloudformation-infrastructure
+Building a highly available and elastic cloud architecture.
+To be continued...
