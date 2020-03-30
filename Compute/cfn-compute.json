@@ -1,0 +1,36 @@
+{
+"AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "Nested stack for compute resources",
+
+    "Parameters": {
+      "NATAvailabilityZone": {
+        "Type": "String",
+        "Description": "AZ in which to launch the NAT instance."
+      },
+      "NATPublicSubnet1Id": {
+        "Type": "String",
+        "Description": "Public subnet in which to launch the NAT instance."
+      },
+      "NATSecurityGroup": {
+        "Type": "String",
+        "Description": "Security Group to associate with the NAT instance."
+      }
+    },
+
+    "Resources": {
+      "NATInstance": {
+        "Type": "AWS::EC2::Instance",
+        "Properties": {
+          "AvailabilityZone": { "Ref": "NATAvailabilityZone" },
+          "ImageId": "ami-099a8245f5daa82bf",
+          "InstanceType": "t2.micro",
+          "SecurityGroupIds": [ { "Ref": "NATSecurityGroup" } ],
+          "SourceDestCheck": false,
+          "SubnetId": { "Ref": "NATPublicSubnet1Id" },
+          "Tags": [
+            { "Key": "Name", "Value": "nat-instance" }
+          ]
+        }
+      }
+    }
+}
