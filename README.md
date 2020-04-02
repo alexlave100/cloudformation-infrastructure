@@ -16,7 +16,7 @@ Building a highly available and elastic cloud architecture using CloudFormation.
 
 
 
-The resource are laid out in a tree structure to simulate the nested hierarchy of the stacks. At the root of the project
+The resources are laid out in a tree structure to simulate the nested hierarchy of the stacks. At the root of the project
 you have the root stack "cfn-infra.json" containing the backbone infrastructure. In every subsequent folder is a child stack template for the resource creation of specific categories in the AWS service catalog.
 
 
